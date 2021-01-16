@@ -292,7 +292,7 @@
     <build>
 
         <!-- Tells Maven to name the generated WAR file as ROOT.war -->
-        <finalName>hapi-fhir-jpaserver</finalName>
+        <finalName>ROOT</finalName>
 
         <plugins>
             <plugin>
