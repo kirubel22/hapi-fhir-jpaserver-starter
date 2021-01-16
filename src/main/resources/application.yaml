@@ -101,7 +101,7 @@ hapi:
 
         global:
           name: Global Tester
-          server_address: 'http://hapi.fhir.org/baseR4'
+          server_address: 'https://docr-fhir2.dev.cloud.duke.edu/hapi-fhir-jpaserver/fhir'
           refuse_to_fetch_third_party_urls: false
           fhir_version: R4
 #    validation:
