@@ -1,14 +1,11 @@
-FROM hapi:base
-ARG HAPI_FHIR_URL=https://github.com/jamesagnew/hapi-fhir/
-ARG HAPI_FHIR_BRANCH=master
-ARG HAPI_FHIR_STARTER_URL=https://github.com/hapifhir/hapi-fhir-jpaserver-starter/
-ARG HAPI_FHIR_STARTER_BRANCH=master
+FROM maven:3.6.3-jdk-11-slim as build-hapi
+WORKDIR /tmp/hapi-fhir-jpaserver-starter
 
-RUN git clone --branch ${HAPI_FHIR_STARTER_BRANCH} ${HAPI_FHIR_STARTER_URL}
-WORKDIR /tmp/hapi-fhir/
-RUN /tmp/apache-maven-3.6.2/bin/mvn dependency:resolve
-RUN /tmp/apache-maven-3.6.2/bin/mvn install -DskipTests
+COPY pom.xml .
+RUN mvn -ntp dependency:go-offline
 
+COPY src/ /tmp/hapi-fhir-jpaserver-starter/src/
+RUN mvn clean install -DskipTests
 
 
 
