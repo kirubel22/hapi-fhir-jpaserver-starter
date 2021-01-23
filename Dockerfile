@@ -1,4 +1,4 @@
-FROM hapi:base
+FROM hapi:v5.1.0
 ARG HAPI_FHIR_URL=https://github.com/jamesagnew/hapi-fhir/
 ARG HAPI_FHIR_BRANCH=master
 ARG HAPI_FHIR_STARTER_URL=https://github.com/hapifhir/hapi-fhir-jpaserver-starter/
